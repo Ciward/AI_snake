@@ -32,6 +32,7 @@ GRID_WIDTH = 30
 GRID_HEIGHT = 30
 
 input_model_path='/kaggle/input/model4800/model4800'
+#html_path='/kaggle'
 
 directionNum = {
     'left': {
@@ -295,7 +296,9 @@ def train():
 @app.route('/', methods=['POST','GET'])
 def hello():
     print('hello')
-    return 'hello'
+    page=open('index.html',encoding='utf-8');#打开当前文件下的my_index.html(这个html是你自己写的)
+    res=page.read()
+    return res
   
 # 运行主函数
 if __name__ == "__main__":
