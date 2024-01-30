@@ -69,6 +69,7 @@ class Agent:
         try:
             self.model=load_model(input_model_path)
             self.epsilon = 0.01  # 探索率
+            print('load_success!!')
         except:
             # 创建一个神经网络模型，用于近似Q值函数。模型有三个全连接层，输入层有11个神经元（对应状态空间维度），输出层有4个神经元（对应动作空间维度），中间层有24个神经元。使用relu激活函数和adam优化器。
             self.model = Sequential()
