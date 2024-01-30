@@ -1,0 +1,4 @@
+fastapi 
+uvicorn
+pyngrok
+flask_cors
