@@ -299,7 +299,7 @@ def hello():
     page=open('index.html',encoding='utf-8');#打开当前文件下的my_index.html(这个html是你自己写的)
     res=page.read()
     return res
-  
+
 # 运行主函数
 if __name__ == "__main__":
     #uvicorn.run(app, host='0.0.0.0', port=8000, workers=1)
