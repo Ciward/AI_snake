@@ -3,7 +3,7 @@ var sw = 20, // 方块的宽
     sh = 20, // 方块的高
     tr = 30, // 行数
     td = 30; // 列数
-var url='https://1c09-35-196-80-120.ngrok-free.app'
+var url='http://localhost:8000'
     
 var snake = null, //蛇的实例
     food = null, //食物的实例
