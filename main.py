@@ -290,7 +290,7 @@ def train():
         return jsonify({'action': -1,'direction': null})
     action=agent.act(state)
     print(action)
-    return jsonify({'action': action,'direction': get_action_key(action)})
+    return jsonify({'action': int(action),'direction': get_action_key(action)})
 
 @app.route('/', methods=['POST','GET'])
 def hello():
