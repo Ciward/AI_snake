@@ -194,10 +194,10 @@ def get_state():
     length = snake['length']
 
     # 将各个特征归一化并转换为numpy数组，作为状态返回
-    state = np.array([head_x / SCREEN_WIDTH,
-                      head_y / SCREEN_HEIGHT,
-                      food_x / SCREEN_WIDTH,
-                      food_y / SCREEN_HEIGHT,
+    state = np.array([head_x / GRID_WIDTH,
+                      head_y / GRID_HEIGHT,
+                      food_x / GRID_WIDTH,
+                      food_y / GRID_HEIGHT,
                       int(direction_LEFT),
                       int(direction_RIGHT),
                       int(direction_UP),
