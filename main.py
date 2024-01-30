@@ -160,10 +160,10 @@ def get_state():
     below_food = head_y > food_y
 
     # 方向
-    direction_LEFT = (snake.direction == directionNum['left'])
-    direction_RIGHT = (snake.direction == directionNum['right'])
-    direction_UP = (snake.direction == directionNum['up'])
-    direction_DOWN = (snake.direction == directionNum['down'])
+    direction_LEFT = (snake['direction'] == directionNum['left'])
+    direction_RIGHT = (snake['direction'] == directionNum['right'])
+    direction_UP = (snake['direction'] == directionNum['up'])
+    direction_DOWN = (snake['direction'] == directionNum['down'])
 
     # 计算蛇头是否朝向墙壁或者自己身体
     facing_wall = (head_x == 0 and direction_LEFT) or \
