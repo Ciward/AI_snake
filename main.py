@@ -78,7 +78,7 @@ class Agent:
             self.model.add(Dense(action_size, activation='linear'))
             self.model.compile(loss='mse', optimizer=Adam(lr=0.001))
             self.epsilon = 1.0  # 探索率
-
+            print('load_fail')
         # 创建一个记忆列表，用于存储经验元组（状态，动作，奖励，下一个状态，是否结束）
         self.memory = []
 
