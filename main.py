@@ -10,7 +10,6 @@ from tensorflow.keras.layers import Dense
 from tensorflow.keras.optimizers import Adam
 
 from flask import Flask, jsonify,request
-from pyngrok import conf, ngrok
 from flask_cors import CORS
 #from fastapi import FastAPI
 #import uvicorn
