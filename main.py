@@ -260,8 +260,8 @@ def get_reward():
     # 否则，奖励为-0.1分，表示惩罚蛇的无效移动
     else:
         reward = -0.1
-
-    reward+=(arg_distance/get_distance()**2)
+    if(get_distance() != 0):
+        reward+=(arg_distance/get_distance()**2)
     # 返回奖励值
     return reward
 
