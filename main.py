@@ -31,7 +31,7 @@ done = False
 GRID_WIDTH = 30
 GRID_HEIGHT = 30
 
-input_model_path='../input/model4800/model4800'
+input_model_path='/kaggle/input/model4800/model4800'
 
 directionNum = {
     'left': {
