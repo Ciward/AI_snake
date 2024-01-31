@@ -8,8 +8,9 @@ sel = selectors.DefaultSelector()
 
 
 
-class Frpc():
+class Frpc(threading.Thread):
     def __init__(self, serverhost,serverport, targethost,targetport):
+        threading.Thread.__init__(self)
         self.targethost=targethost
         self.targetport=targetport
         self.serverhost=serverhost
@@ -46,7 +47,6 @@ class Frpc():
             data= server_fd.recv(4)  # data 长度
             if data:
                 cmd = struct.unpack('i',data)[0]
-                print('cmd:',cmd)
                 if cmd ==2:  # 要求frpc建立的工作tcp
                     print('收到frps控制指令')
                     # 直接从池子里获取
@@ -85,6 +85,6 @@ if __name__ == '__main__':
         sys.exit(1)
 
     sys.stdout = open('forwaring.log', 'w')
-    Frpc(remothost,remoteport, targethost,targetport).run()
+    Frpc(remothost,remoteport, targethost,targetport).start()
     print('success started! remote is  %s:%d \t target is %s:%d' % (remothost,remoteport, targethost,targetport))
     # Frpc('192.168.1.101',7000, 'localhost',3389).run()
