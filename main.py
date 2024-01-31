@@ -31,7 +31,7 @@ done = False
 WIDTH = 30
 HEIGHT = 30
 
-#input_model_path='/kaggle/input/model4800/model4800'
+input_model_path='/kaggle/input/model4800/model4800'
 #html_path='/kaggle'
 
 directionNum = {
@@ -62,7 +62,7 @@ snake= {}
 food = {}
 state = np.array([])
 
-count = 1
+count = 4801
 
 # 继续定义代理类
 class Agent:
