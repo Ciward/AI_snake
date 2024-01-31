@@ -305,7 +305,7 @@ Game.prototype.start = function () { // 开始游戏
         if (needFood) {
             createFood();
         }
-    }, 40)
+    }, 1)
 }
 
 Game.prototype.pause = function () {
