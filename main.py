@@ -281,7 +281,7 @@ def init_state():
     food =data['food']
     state=get_state()
     print('init success!!')
-    return 'success'
+    return jsonify({'data':'sucess'})
 
 @app.route('/train', methods=['POST'])
 def train():
