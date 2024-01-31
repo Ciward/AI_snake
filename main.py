@@ -273,6 +273,15 @@ agent = Agent()
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/init', methods=['POST'])
+def init_state():
+    global snake,food,state
+    data = request.get_json()
+    snake =data['snake']
+    food =data['food']
+    state=get_state()
+    return 'success'
+
 @app.route('/train', methods=['POST'])
 def train():
     global snake,food,state
