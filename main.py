@@ -248,6 +248,7 @@ def get_action_key(action):
 arg_distance=12
 # 继续定义get_reward函数
 def get_reward():
+    global count
     reward=0
     # 如果蛇吃到食物，奖励为10分，并让蛇增加长度，食物重新生成位置
     if snake['positions'][0] == food['positions']:
