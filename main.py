@@ -62,7 +62,7 @@ snake= {}
 food = {}
 state = np.array([])
 
-count = 4801
+count = 1
 
 # 继续定义代理类
 class Agent:
@@ -256,7 +256,7 @@ def get_reward():
     # 如果蛇死亡，奖励为-10分，并设置游戏结束标志为True
     elif snake['is_dead']:
         reward = -15
-        if count%100==0:
+        if count%50==0:
             save_model(agent.model,"model"+str(count))
         count+=1
     # 否则，奖励为-0.1分，表示惩罚蛇的无效移动
