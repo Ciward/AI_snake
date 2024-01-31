@@ -28,8 +28,8 @@ done = False
 #SCREEN_WIDTH = 480  # 屏幕宽度
 #SCREEN_HEIGHT = 480  # 屏幕高度
 #GRID_SIZE = 20  # 网格大小
-GRID_WIDTH = 30
-GRID_HEIGHT = 30
+WIDTH = 30
+HEIGHT = 30
 
 #input_model_path='/kaggle/input/model4800/model4800'
 #html_path='/kaggle'
@@ -169,9 +169,9 @@ def get_state():
 
     # 计算蛇头是否朝向墙壁或者自己身体
     facing_wall = (head_x == 0 and direction_LEFT) or \
-                  (head_x == GRID_WIDTH-1 and direction_RIGHT) or \
+                  (head_x == WIDTH-1 and direction_RIGHT) or \
                   (head_y == 0 and direction_UP) or \
-                  (head_y == GRID_HEIGHT-1 and direction_DOWN)
+                  (head_y == HEIGHT-1 and direction_DOWN)
 
     facing_body = ((head_x, head_y) in snake['positions'][1:] and direction_LEFT) or \
                   ((head_x, head_y) in snake['positions'][1:] and direction_RIGHT) or \
@@ -196,10 +196,10 @@ def get_state():
     length = snake['length']
 
     # 将各个特征归一化并转换为numpy数组，作为状态返回
-    state = np.array([head_x / GRID_WIDTH,
-                      head_y / GRID_HEIGHT,
-                      food_x / GRID_WIDTH,
-                      food_y / GRID_HEIGHT,
+    state = np.array([head_x / WIDTH,
+                      head_y / HEIGHT,
+                      food_x / WIDTH,
+                      food_y / HEIGHT,
                       int(direction_LEFT),
                       int(direction_RIGHT),
                       int(direction_UP),
@@ -214,7 +214,7 @@ def get_state():
                       int(below_food),
                       int(facing_wall),
                       int(facing_body),
-                      length / (GRID_WIDTH * GRID_HEIGHT)])
+                      length / (WIDTH * HEIGHT)])
 
     return state.reshape(1, state_size)
 
@@ -275,12 +275,14 @@ CORS(app)
 
 @app.route('/init', methods=['POST'])
 def init_state():
-    global snake,food,state
+    global snake,food,state,count,WIDTH,HEIGHT
     data = request.get_json()
     snake =data['snake']
     food =data['food']
+    WIDTH=data['WIDTH']
+    HEIGHT=data['HEIGHT']
     state=get_state()
-    print('init success!!')
+    print('count:',count)
     return jsonify({'data':'sucess'})
 
 @app.route('/train', methods=['POST'])
@@ -301,7 +303,7 @@ def train():
         food= {}
         return jsonify({'action': -1,'direction': ''})
     action=agent.act(state)
-    print(action)
+    #print(action)
     return jsonify({'action': int(action),'direction': get_action_key(action)})
 
 @app.route('/', methods=['POST','GET'])
