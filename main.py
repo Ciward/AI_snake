@@ -289,7 +289,7 @@ def train():
         agent.replay(batch_size)
         snake={}
         food= {}
-        return jsonify({'action': -1,'direction': null})
+        return jsonify({'action': -1,'direction': ''})
     action=agent.act(state)
     print(action)
     return jsonify({'action': int(action),'direction': get_action_key(action)})
