@@ -280,6 +280,7 @@ def init_state():
     snake =data['snake']
     food =data['food']
     state=get_state()
+    print('init success!!')
     return 'success'
 
 @app.route('/train', methods=['POST'])
